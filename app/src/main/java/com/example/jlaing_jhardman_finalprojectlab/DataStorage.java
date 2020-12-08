@@ -1,8 +1,8 @@
 package com.example.jlaing_jhardman_finalprojectlab;
 
 public class DataStorage {
-    String[] appSecrets = {};
-    String[] accountNames = {};
-    String[] accountSecrets = {};
+    static String[] appSecrets = {};
+    static String[] accountNames = {};
+    static String[] accountSecrets = {};
 
 }

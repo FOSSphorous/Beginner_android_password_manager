@@ -28,7 +28,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void onGenPasswordIntro(View v){
         EditText setupPassword = findViewById(R.id.txtSetupPassword);
-        setupPassword.setText(accountHandling.generateRandomString(8));
+        setupPassword.setText(accountHandling.generateRandomString(10));
+    }
+
+    public void onGenUsernameAccount (View v){
+        EditText setupUsername = findViewById(R.id.txtSubmissionsUsername);
+        setupUsername.setText(accountHandling.generateRandomString(8));
+    }
+
+    public void onGenPasswordAccount(View v){
+        EditText setupPassword = findViewById(R.id.txtSubmissionPassword);
+        setupPassword.setText(accountHandling.generateRandomString(10));
     }
 
     @SuppressLint("SetTextI18n")
@@ -128,10 +138,11 @@ public class MainActivity extends AppCompatActivity {
                 accountHandling.results += element + "\n";
                 System.out.println(accountHandling.results);
             }
-            //TextView accountNameBox = findViewById(R.id.textView3);
-            //accountNameBox.setText("");
 
             setContentView(R.layout.account_display);
+
+            TextView accountNameBox = findViewById(R.id.textView3);
+            accountNameBox.setText(accountHandling.results);
         }
     }
 

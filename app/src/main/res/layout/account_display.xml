@@ -7,8 +7,8 @@
 
     <EditText
         android:id="@+id/txtSetupUsername2"
-        android:layout_width="221dp"
-        android:layout_height="42dp"
+        android:layout_width="209dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:hint="Account Name"
         android:inputType="textPersonName"
@@ -65,13 +65,13 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="65dp"
-        android:layout_height="62dp"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintHorizontal_bias="0.861"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639"
+        app:layout_constraintVertical_bias="0.624"
         app:srcCompat="@mipmap/magnifying_glass_foreground" />
 </androidx.constraintlayout.widget.ConstraintLayout>

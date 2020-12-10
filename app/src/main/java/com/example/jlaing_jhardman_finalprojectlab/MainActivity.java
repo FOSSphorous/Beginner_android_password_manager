@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 public class MainActivity extends AppCompatActivity {
 
     // Make AccountHandling.java usable within this file
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSubmitAccountCreation(View v) {
         EditText accountUsername = findViewById(R.id.txtSubmissionsUsername);
         EditText accountPassword = findViewById(R.id.txtSubmissionPassword);
-        EditText accountName = findViewById(R.id.txtSubmissionName);
+        final EditText accountName = findViewById(R.id.txtSubmissionName);
 
         String Username = accountUsername.getText().toString();
         String Password = accountPassword.getText().toString();
@@ -152,17 +151,23 @@ public class MainActivity extends AppCompatActivity {
             DataStorage.accountNames = tmpAccountNames.toArray(new String[DataStorage.accountNames.length + 1]);
             DataStorage.accountSecrets = tmpAccountSecrets.toArray(new String[DataStorage.accountSecrets.length + 1]);
 
-
-            /* iterate through array of names and concatenate them with newline delimiter to be
-            displayed in the topmost textview of acount_display */
-            for (String element : DataStorage.accountNames) {
-                accountHandling.results += element + "\n";
-            }
-
             setContentView(R.layout.account_display);
 
+            /* treat the accountNames array as a string and remove the square brackets (first and third
+            replace). If there's a combination of a string and a comma, like there would be with multiple
+            entries present in the array, replace it with a new line delimiter (second replace) The end
+            result is the same as printing each entry of the original array on a new line. A really hacky
+            way of going about things but it squashes out that annoying bug. */
+
+            String filterThis = Arrays.toString(DataStorage.accountNames);
+
+            filterThis = filterThis.replace("[","");
+            filterThis = filterThis.replace(", ", "\n");
+            String filteredResult = filterThis.replace("]", "");
+
             TextView accountNameBox = findViewById(R.id.textView3);
-            accountNameBox.setText(accountHandling.results);
+            accountNameBox.setText(filteredResult);
+
         }
     }
 

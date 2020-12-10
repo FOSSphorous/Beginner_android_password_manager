@@ -120,7 +120,16 @@ public class MainActivity extends AppCompatActivity {
 
     // Returns from account_create to account_display. User doesn't add an entry
     public void onCancelCreation(View v){
+        String filterThis = Arrays.toString(DataStorage.accountNames);
+
+        filterThis = filterThis.replace("[","");
+        filterThis = filterThis.replace(", ", "\n");
+        String filteredResult = filterThis.replace("]", "");
+
         setContentView(R.layout.account_display);
+
+        TextView accountNameBox = findViewById(R.id.textView3);
+        accountNameBox.setText(filteredResult);
     }
 
     // The submission button (checkmark) on account_create

@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AccountHandling {
-    public DataStorage dataStorage = new DataStorage();
 
     // strings are created from the characters in the list
     public String generateRandomString (int charLength) {
